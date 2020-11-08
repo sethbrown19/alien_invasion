@@ -26,17 +26,16 @@ class AlienInvasion:
             
     def _check_events(self):
         """Respond to key presses and mouse events"""
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
                     
     def _update_screen(self):
         """Update images on screen and flip to the new screen"""
-            self.screen.fill(self.settings.bg_color)
-            self.ship.blitme()
-        
-            #make the most recently drawn screen visible
-            pygame.display.flip()
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme()
+        #make the most recently drawn screen visible
+        pygame.display.flip()
 
 if __name__ == '__main__':
     ai = AlienInvasion()
