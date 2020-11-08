@@ -1,4 +1,4 @@
-# first install pip on your bash or cmmd prompt like so (pip install --user pygame)
+#first install pip on your bash or cmmd prompt like so (pip install --user pygame)
 
 import sys
 
@@ -6,6 +6,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+
 class AlienInvasion:
     
     def __init__(self):
@@ -22,6 +23,7 @@ class AlienInvasion:
         """Start the main loop for the game."""
         while True:
             self._check_events()
+            self.ship.update()
             self._update_screen()
             
     def _check_events(self):
@@ -29,6 +31,12 @@ class AlienInvasion:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = True
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = False
                     
     def _update_screen(self):
         """Update images on screen and flip to the new screen"""
