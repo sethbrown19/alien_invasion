@@ -65,6 +65,7 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+            
     def _update_bullets(self):
         """Update position of the bullets and get rid of the old bullers."""
         #update position of bullets
