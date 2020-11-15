@@ -7,7 +7,7 @@ class Alien(Sprite):
     
     def __init__(self, ai_game):
         """ Initialize the alien and set its starting point"""
-        super().__init()
+        super().__init__()
         self.screen = ai_game.screen
         
         # Load the alien and set its rect attribute
