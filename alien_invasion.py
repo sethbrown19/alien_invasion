@@ -35,7 +35,7 @@ class AlienInvasion:
         self.aliens = pygame.sprite.Group()
         self._create_fleet()
         
-        self.play_button = Button(self, "Play")
+        self.play_button = Button(self, "Play Alien Invasion")
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -75,6 +75,7 @@ class AlienInvasion:
             self.stats.game_active = True
             self.sb.prep_score()
             self.sb.prep_level()
+            self.sb.prep_ships()
             
             # Get rid of remaining aliens and bullets
             self.aliens.empty()
@@ -174,6 +175,7 @@ class AlienInvasion:
         if self.stats.ships_left >0:
             # Decrease ships left
             self.stats.ships_left -= 1
+            self.sb.prep_ships()
          
             # Get rid of any remaining aliens and bullets 
             self.aliens.empty()
@@ -184,7 +186,7 @@ class AlienInvasion:
             self.ship.center_ship()
          
             # pause
-            sleep(1.5)
+            sleep(3.5)
         
         else:
             self.stats.game_active = False
